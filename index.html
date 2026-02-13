@@ -122,7 +122,7 @@
         const imgPltFlutuante = new Image(); imgPltFlutuante.src = pathUsoGeral + "plt2.png";
         const imgCidadeDistante = new Image(); imgCidadeDistante.src = pathBG + "cit1.png";
         const imgRochas = new Image(); imgRochas.src = pathBG + "elent_prl1.png";
-        const imgPlataformaS1 = new Image(); imgPlataformaS1.src = "../levels/level1_spt/plt_1/pltsp_1.png";
+        const imgPlataformaS1 = new Image(); imgPlataformaS1.src = "/levels/level1_spt/plt_1/pltsp_1.png";
         const imgPlataformaS2 = new Image(); imgPlataformaS2.src = pathSetor2 + "pltsp_2.png";
         const imgPlataformaS2Inv = new Image(); imgPlataformaS2Inv.src = pathSetor2 + "pltsp_2inv.png"; // Novo sprite
         const imgCubo = new Image(); imgCubo.src = pathSetor2 + "cubo1.png";
@@ -137,16 +137,16 @@
         const imgEspinhosInv = new Image();imgEspinhosInv.src = pathUsoGeral + "espinhos_inv.png";
         
 
-        const imgRoboStand = new Image(); imgRoboStand.src = "../sprites_robo/stand_1/stand_rb1.png";
-        const imgJump1 = new Image(); imgJump1.src = "../sprites_robo/jump/jump_mv1.png";
-        const imgJump2 = new Image(); imgJump2.src = "../sprites_robo/jump/jump_mv2.png";
+        const imgRoboStand = new Image(); imgRoboStand.src = "/sprites_robo/stand_1/stand_rb1.png";
+        const imgJump1 = new Image(); imgJump1.src = "/sprites_robo/jump/jump_mv1.png";
+        const imgJump2 = new Image(); imgJump2.src = "/sprites_robo/jump/jump_mv2.png";
 
         const imgsRun = [];
         const nomesCorrida = ["run_rb__0009_Camada-1.png", "run_rb__0008_Camada-2.png", "run_rb__0007_Camada-3.png", "run_rb__0006_Camada-4.png", "run_rb__0005_Camada-5.png", "run_rb__0004_Camada-6.png", "run_rb__0003_Camada-7.png", "run_rb__0002_Camada-8.png", "run_rb__0001_Camada-9.png", "run_rb__0000_Camada-10.png"];
-        nomesCorrida.forEach(n => { const i = new Image(); i.src = `../sprites_robo/run_1/${n}`; imgsRun.push(i); });
+        nomesCorrida.forEach(n => { const i = new Image(); i.src = `/sprites_robo/run_1/${n}`; imgsRun.push(i); });
 
         //minibear ciborg 
-        const pathBoss = "../sprite_inimigos/bearcibv1/";
+        const pathBoss = "/sprite_inimigos/bearcibv1/";
             const imgsMiniBear = [];
             for (let i = 1; i <= 8; i++) {
                 const img = new Image(); img.src = `${pathBoss}bcq${i}.png`; imgsMiniBear.push(img);
