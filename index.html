@@ -5,8 +5,22 @@
     <meta charset="UTF-8">
     <title>Robo Adventure - Final Stable Version</title>
     <style>
-        body { margin: 0; display: flex; justify-content: center; align-items: center; height: 100vh; background-color: #1a1a1a; overflow: hidden; }
-        canvas { border: 5px solid #fff; background-color: #5c94fa; image-rendering: pixelated; cursor: crosshair; }
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1a1a1a;
+            overflow: hidden;
+        }
+
+        canvas {
+            border: 5px solid #fff;
+            background-color: #5c94fa;
+            image-rendering: pixelated;
+            cursor: crosshair;
+        }
     </style>
 </head>
 
@@ -43,7 +57,7 @@
         const imgCidadeDistante = criarImg(pathLevels + "level1_spt/backgrounds_lv1/cit1.png");
         const imgPlataformaS1 = criarImg(pathLevels + "level1_spt/plt_1/pltsp_1.png");
         const imgRoboStand = criarImg(pathRobo + "stand_1/stand_rb1.png");
-        
+
         // Inimigos (BearCib)
         const imgsMiniBear = [];
         for (let i = 1; i <= 8; i++) {
@@ -58,7 +72,7 @@
         };
 
         const miniBear = {
-            x: 28740, y: 566, w: 78, h: 120, velX: -2, vida: 2, 
+            x: 28740, y: 566, w: 78, h: 120, velX: -2, vida: 2,
             morto: false, timerMorte: 0, ondaAtual: 1, totalOndas: 3
         };
 
@@ -72,8 +86,8 @@
             }
             atualizar() {
                 if (this.morto) return;
-                if (this.timerMorte > 0) { this.timerMorte--; if(this.timerMorte <= 0) this.morto = true; return; }
-                
+                if (this.timerMorte > 0) { this.timerMorte--; if (this.timerMorte <= 0) this.morto = true; return; }
+
                 this.x += this.velX;
                 if (this.x < this.limiteEsq || this.x + this.w > this.limiteDir) {
                     this.velX *= -1; this.direcao = this.velX > 0 ? 1 : -1;
@@ -97,7 +111,7 @@
             robo.y += robo.velY;
             if (robo.y > 580) { robo.y = 580; robo.velY = 0; robo.estaNoChao = true; }
             else { robo.velY += robo.gravidade; }
-            
+
             robo.worldX += robo.velX;
             inimigosComuns.forEach(i => i.atualizar());
 
@@ -107,7 +121,7 @@
 
         function desenharCena() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
+
             // Fundo Parallax
             if (imgCidadeDistante.complete) ctx.drawImage(imgCidadeDistante, 0, 0, 1280, 720);
 
@@ -137,7 +151,7 @@
             ctx.fillStyle = "white";
             ctx.font = "bold 20px monospace";
             ctx.fillText("SISTEMA ONLINE - JI-PARANÁ PROTOCOL", 20, 40);
-            
+
             if (!imgRoboStand.complete) {
                 ctx.fillStyle = "red";
                 ctx.fillText("ERRO: PASTAS NO GITHUB DEVEM SER 'sprites_robo' E 'levels'", 20, 80);
@@ -147,4 +161,5 @@
         loop();
     </script>
 </body>
+
 </html>
