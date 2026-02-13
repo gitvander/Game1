@@ -1004,7 +1004,14 @@
                                 ctx.drawImage(img, p.x + xP, p.y, Math.min(lS, p.w - xP), p.h);
                             }
                         } else {
-                            ctx.drawImage(img, p.x, p.y, p.w, p.h);
+                            // Só tenta desenhar se a imagem carregou e tem tamanho real
+                            if (img && img.complete && img.naturalWidth !== 0) {
+                                ctx.drawImage(img, p.x, p.y, p.w, p.h);
+                            } else {
+                                // Se a imagem falhar, desenha um bloco para o código não travar
+                                ctx.fillStyle = "rgba(0, 255, 0, 0.3)";
+                                ctx.fillRect(p.x, p.y, p.w, p.h);
+                            }
                         }
                     }
                 });
